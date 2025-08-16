@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIRiNA DOOR</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
@@ -139,45 +141,89 @@
             padding-top: 20px;
         }
         .logo{
-            margin-left: 20px;
+            margin-left: 30px;
             width: 150px;
             max-height: 80px;
+        }
+        #homee {
+            gap: px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="sticky top-0 bg-[#e8f5e9] shadow-sm z-50">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Logo -->
-            <div class="flex items-center">
-                <img src="logo.jpg" alt="SIRiNA DOOR Logo" class="logo">
-            </div>
-            
-            <!-- Navigation -->
-            <nav class="flex items-center space-x-8 rtl:space-x-reverse">
-                <a href="#" class="nav-link text-green-800 font-medium translate-text" onclick="showPage('home')" data-key="home">Home</a>
-                <a href="#" class="nav-link text-green-800 font-medium translate-text" onclick="showPage('gallery')" data-key="gallery">Gallery</a>
-                
-                <!-- Language Selector -->
-                <div class="language-selector ml-6 rtl:mr-6 rtl:ml-0">
-                    <button class="flex items-center space-x-1 rtl:space-x-reverse bg-white px-4 py-2 rounded-full shadow-sm">
-                        <span>🌐</span>
-                        <span class="font-medium current-language">EN</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="language-options">
-                        <a href="#" class="block px-4 py-2 hover:bg-green-50 text-sm" onclick="changeLanguage('en')"> English</a>
-                        <a href="#" class="block px-4 py-2 hover:bg-green-50 text-sm arabic-font" onclick="changeLanguage('ar')"> العربية</a>
-                        <a href="#" class="block px-4 py-2 hover:bg-green-50 text-sm" onclick="changeLanguage('fr')">Français</a>
-                       
-                    </div>
-                </div>
-            </nav>
+<!-- Header -->
+<header class="sticky top-0 bg-[#e8f5e9] shadow-sm z-50">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    
+    <!-- Logo -->
+    <div class="flex items-center">
+      <img src="logo.jpg" alt="SIRiNA DOOR Logo" class="logo">
+    </div>
+
+    <!-- زر المنيو يظهر فقط على الموبايل -->
+    <button onclick="toggleSidebar()" class="md:hidden px-4 py-2 rounded-full  text-green-800  items-center space-x-2 rtl:space-x-reverse">
+      <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M3 6h14M3 10h14M3 14h14" />
+      </svg>
+      <span class="text-sm font-medium" style="width: -20px; margin-left: -14.5px; align-items: center; font-size: 19px; margin-bottom: 200000px;"><i class="fas fa-bars"></i></span>
+    </button>
+
+    <!-- Navigation (لأجهزة الكمبيوتر فقط) -->
+    <nav class="hidden md:flex items-center space-x-8 rtl:space-x-reverse" id="homee">
+      <a href="#" class="nav-link text-green-800 font-medium translate-text" onclick="showPage('home')" data-key="home">Home</a>
+      <a href="#" class="nav-link text-green-800 font-medium translate-text" onclick="showPage('gallery')" data-key="gallery">Gallery</a>
+
+      <!-- Language Selector -->
+      <div class="language-selector ml-6 rtl:mr-6 rtl:ml-0">
+        <button class="flex items-center space-x-1 rtl:space-x-reverse bg-white px-4 py-2 rounded-full shadow-sm">
+          <span>🌐</span>
+          <span class="font-medium current-language">EN</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="language-options">
+          <a href="#" class="block px-4 py-2 hover:bg-green-50 text-sm" onclick="changeLanguage('en')"> English</a>
+          <a href="#" class="block px-4 py-2 hover:bg-green-50 text-sm arabic-font" onclick="changeLanguage('ar')"> العربية</a>
+          <a href="#" class="block px-4 py-2 hover:bg-green-50 text-sm" onclick="changeLanguage('fr')">Français</a>
         </div>
-    </header>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Sidebar Menu (للموبايل) -->
+<div id="sidebarMenu" class="fixed top-0 right-0 w-64 h-full bg-green-700 text-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+  <div class="p-6 space-y-6">
+    <div class="flex justify-between items-center">
+      <h2 class="text-lg font-bold">Menu</h2>
+      <button onclick="toggleSidebar()" class="text-white text-xl">✖</button>
+    </div>
+    <nav class="space-y-4">
+      <a href="#" onclick="showPage('home'); toggleSidebar()" class="block font-medium hover:underline"> Home</a>
+      <a href="#" onclick="showPage('gallery'); toggleSidebar()" class="block font-medium hover:underline">Gallery</a>
+    </nav>
+    <hr class="border-white opacity-30">
+    <div id="menuu">
+        <ul>
+     <p class="font-semibold mb-2">Language</p>
+      <a href="#" onclick="changeLanguage('en'); toggleSidebar()" class="block text-sm hover:underline">English</a>
+      <a href="#" onclick="changeLanguage('ar'); toggleSidebar()" class="block text-sm hover:underline">العربية</a>
+      <a href="#" onclick="changeLanguage('fr'); toggleSidebar()" class="block text-sm hover:underline">Français</a>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebarMenu');
+    sidebar.classList.toggle('translate-x-full');
+  }
+</script>
+
+
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
