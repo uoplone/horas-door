@@ -11,7 +11,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #e8f5e9;
+            background-color: #eed9bb;
         }
         
         .arabic-font {
@@ -38,7 +38,7 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background-color: #a67c52;
+            background-color: #e0d7c8;
             transition: width 0.3s ease;
         }
         
@@ -64,7 +64,7 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background-color: white;
+            background-color: rgb(255, 255, 255);
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             z-index: 100;
@@ -165,9 +165,9 @@
                         </svg>
                     </button>
                     <div class="language-options">
-                        <a href="#" class="block px-4 py-2 hover:bg-beige-50 text-sm" onclick="changeLanguage('en')">🇺🇸 English</a>
-                        <a href="#" class="block px-4 py-2 hover:bg-beige-50 text-sm arabic-font" onclick="changeLanguage('ar')">🇪🇬 العربية</a>
-                       <a href="#" class="block px-4 py-2 hover:bg-begie-50 text-sm" onclick="changeLanguage('fr')">🇫🇷 Français</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-beige-50 text-sm" onclick="changeLanguage('en')"> English</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-beige-50 text-sm arabic-font" onclick="changeLanguage('ar')">العربية</a>
+                       <a href="#" class="block px-4 py-2 hover:bg-begie-50 text-sm" onclick="changeLanguage('fr')">Français</a>
                     </div>
                 </div>
             </nav>
@@ -315,6 +315,7 @@ function closeMenu() {
 
     </header>
 
+
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
         <!-- Home Page -->
@@ -323,7 +324,7 @@ function closeMenu() {
                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="flex flex-col md:flex-row">
                         <div class="md:w-1/2 p-8 md:p-12">
-                            <h1 class="text-4xl font-bold text-green-800 mb-4 translate-text" data-key="welcome">Welcome to SIRiNA DOOR</h1>
+                            <h1 class="text-4xl font-bold text-green-800 mb-4 translate-text" data-key="welcome" style="color: #6c4825;">Welcome to SIRiNA DOOR</h1>
                             <div class="info-placeholder">
                                 <p class="text-gray-600 mb-6 translate-text" data-key="intro">
                                     This is where you can put your company introduction and information. 
@@ -345,10 +346,10 @@ function closeMenu() {
             </section>
 
             <section class="mb-16">
-                <h2 class="text-2xl font-bold text-green-800 mb-6 translate-text" data-key="about-us">About Us</h2>
+                <h2 class="text-2xl font-bold mb-6 translate-text" data-key="about-us" style="color: #6c4825;">About Us</h2>
                 <div class="bg-white rounded-2xl shadow-lg p-8">
                     <div>
-                        <h3 class="text-xl font-semibold text-green-700 mb-4 translate-text" data-key="our-story">Our Story</h3>
+                        <h3 class="text-xl font-semibold text-green-700 mb-4 translate-text" data-key="our-story" style="color: #6c4825;">Our Story</h3>
                         <div class="info-placeholder">
                             <p class="text-gray-600 mb-4 translate-text" data-key="story-p1">
                                 This is where you can put information about SIRiNA DOOR's history, 
@@ -365,15 +366,15 @@ function closeMenu() {
             </section>
 
             <section>
-                <h2 class="text-2xl font-bold text-green-800 mb-6 translate-text" data-key="our-services">Our Door Collections</h2>
+                <h2 class="text-2xl font-bold  mb-6 translate-text" data-key="our-services" style="color: #6c4825;" >Our Door Collections</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
                         <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #e0d7c8;">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-green-700 mb-2 translate-text" data-key="service-1">Interior Doors</h3>
+                        <h3 class="text-lg font-semibold text-green-700 mb-2 translate-text" data-key="service-1" style="color: #eed9bb;" >Interior Doors</h3>
                         <div class="info-placeholder">
                             <p class="text-gray-600 translate-text" data-key="service-1-desc">
                                 Description of your interior door collection. Explain the benefits, materials, and design options.
@@ -383,11 +384,11 @@ function closeMenu() {
                     
                     <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
                         <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #6c4825;">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-green-700 mb-2 translate-text" data-key="service-2">Exterior Doors</h3>
+                        <h3 class="text-lg font-semibold text-green-700 mb-2 translate-text" data-key="service-2" style="color: #6c4825;" >Exterior Doors</h3>
                         <div class="info-placeholder">
                             <p class="text-gray-600 translate-text" data-key="service-2-desc">
                                 Description of your exterior door collection. Explain the benefits, materials, and security features.
@@ -397,11 +398,11 @@ function closeMenu() {
                     
                     <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
                         <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #6c4825;">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-green-700 mb-2 translate-text" data-key="service-3">Distinctive Doors</h3>
+                        <h3 class="text-lg font-semibold text-green-700 mb-2 translate-text" data-key="service-3" style="color: #6c4825;" >Distinctive Doors</h3>
                         <div class="info-placeholder">
                             <p class="text-gray-600 translate-text" data-key="service-3-desc">
                                 Description of your distinctive door options. Explain the unique designs, materials, and special features.
@@ -422,12 +423,12 @@ function closeMenu() {
                 <!-- Product Card 1 -->
                 <div class="product-card bg-white rounded-xl shadow-md overflow-hidden relative">
                     <div class="h-48 bg-green-100 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #6c4825;">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                         </svg>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-lg font-semibold text-green-800 mb-2 translate-text" data-key="product-1">Modern Interior Door</h3>
+                        <h3 class="text-lg font-semibold text-green-800 mb-2 translate-text" data-key="product-1" style="color: #6c4825;" >Modern Interior Door</h3>
                         <p class="text-gray-600 mb-4 translate-text" data-key="product-1-desc">Sleek design with premium materials. Perfect for contemporary homes and offices.</p>
                         <div class="flex justify-end items-center">
                             <button class="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800 transition translate-text" data-key="view-details" onclick="showPage('product-details', 1)">View Details</button>
@@ -630,28 +631,28 @@ function closeMenu() {
                 <div class="flex flex-col lg:flex-row">
                     <div class="lg:w-1/2">
                         <div class="h-80 bg-green-100 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-40 w-40 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/200/svg" class="h-40 w-40 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                             </svg>
                         </div>
                         <div class="p-6 grid grid-cols-4 gap-2">
-                            <div class="bg-green-50 rounded-md p-2 cursor-pointer hover:bg-green-100 transition">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div class="bg-[#e0d7c8] rounded-md p-2 cursor-pointer hover:bg-[#c3b9a6] transition">
+                                <svg xmlns="" class="h-full w-full text-[#6c4825]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                                 </svg>
                             </div>
-                            <div class="bg-green-50 rounded-md p-2 cursor-pointer hover:bg-green-100 transition">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                             <div class="bg-[#e0d7c8] rounded-md p-2 cursor-pointer hover:bg-[#c3b9a6] transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-[#6c4825]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                                 </svg>
                             </div>
-                            <div class="bg-green-50 rounded-md p-2 cursor-pointer hover:bg-green-100 transition">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                             <div class="bg-[#e0d7c8] rounded-md p-2 cursor-pointer hover:bg-[#c3b9a6] transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-[#6c4825]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                                 </svg>
                             </div>
-                            <div class="bg-green-50 rounded-md p-2 cursor-pointer hover:bg-green-100 transition">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div class="bg-[#e0d7c8] rounded-md p-2 cursor-pointer hover:bg-[#c3b9a6] transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-full w-full text-[#6c4825]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                                 </svg>
                             </div>
@@ -677,115 +678,51 @@ function closeMenu() {
                     </div>
                 </div>
             </div>
+            
 
-            <div class="mt-12">
-                <h2 class="text-2xl font-bold text-green-800 mb-6 translate-text" data-key="related-products">Related Products</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <!-- Related Product 1 -->
-                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden">
-                        <div class="h-40 bg-green-100 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                            </svg>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-md font-semibold text-green-800 mb-1 translate-text" data-key="related-1">Related Door 1</h3>
-                            <button class="text-green-700 hover:text-green-800 mt-2" onclick="showPage('product-details', 1)">
-                                <span class="translate-text" data-key="view-details">View Details</span>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Related Product 2 -->
-                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden">
-                        <div class="h-40 bg-green-100 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                            </svg>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-md font-semibold text-green-800 mb-1 translate-text" data-key="related-2">Related Door 2</h3>
-                            <button class="text-green-700 hover:text-green-800 mt-2" onclick="showPage('product-details', 2)">
-                                <span class="translate-text" data-key="view-details">View Details</span>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Related Product 3 -->
-                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden">
-                        <div class="h-40 bg-green-100 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                            </svg>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-md font-semibold text-green-800 mb-1 translate-text" data-key="related-3">Related Door 3</h3>
-                            <button class="text-green-700 hover:text-green-800 mt-2" onclick="showPage('product-details', 3)">
-                                <span class="translate-text" data-key="view-details">View Details</span>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <!-- Related Product 4 -->
-                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden">
-                        <div class="h-40 bg-green-100 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                            </svg>
-                        </div>
-                        <div class="p-4">
-                            <h3 class="text-md font-semibold text-green-800 mb-1 translate-text" data-key="related-4">Related Door 4</h3>
-                            <button class="text-green-700 hover:text-green-800 mt-2" onclick="showPage('product-details', 4)">
-                                <span class="translate-text" data-key="view-details">View Details</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-green-800 text-white py-12 mt-16">
+<!-- Footer -->
+    <footer class="bg-[#6c4825] text-white py-12 mt-16">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    <h3 class="text-xl font-semibold mb-4 translate-text" data-key="quick-links">Quick Links</h3>
+                    <h3 class="text-xl font-semibold mb-4 translate-text" data-key="quick-links"  >Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-beige-100 hover:text-white" onclick="showPage('home')">Home</a></li>
-                        <li><a href="#" class="text-green-100 hover:text-white" onclick="showPage('gallery')">Gallery</a></li>
+                        <li><a href="#" class="text-beige-100 hover:text-white"style="color: #e0d7c8;" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#" class="text-gree-100 hover:text-white" style="color: #e0d7c8;" onclick="showPage('gallery')">Gallery</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h3 class="text-xl font-semibold mb-4 translate-text" data-key="contact-us">Contact Us</h3>
+                    <h3 class="text-xl font-semibold mb-4 translate-text" data-key="contact-us" >Contact Us</h3>
                     <ul class="space-y-3">
                         <li class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-beige-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-beige-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #e0d7c8;">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                            <span class="text-green-100">123 Business Street, City, Country</span>
+                            <span class="text-green-100" style="color: #e0d7c8;" ><a href="https://maps.app.goo.gl/3r4BCaHQA7Hf9jCB8"> Our site </a></span>
+                        </li>
+                        <li class="contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-100" fill="none" viewBox="0 0 24 24" stroke="currentColor"  >
+                                <path stroke-linecap="round" stroke-linejoin="round"  style="color: #e0d7c8;" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <span class=bg-[#6c4825]  a href= "tel: +905072134190" style="color: #e0d7c8;">+90 507 213 4190</a></span>
                         </li>
                         <li class="contact-item">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"  style="color: #e0d7c8;" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
-                            <span class="text-black-100" ><a href="tel: +905072134190">+90 507 213 4190</a></span>
-                        </li>
-                        <li class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                            <span class="text-black-100"><a href="mailto: horaskapi@gmail.com">horaskapi@gmail.com</a></span>
+                            <span class="text-black-100"><a href="mailto: horaskapi@gmail.com" style="color: #e0d7c8;">horaskapi@gmail.com</a></span>
                         </li>
                     </ul>
                 </div>
             </div>
-            
             <!-- Copyright section with more spacing -->
-            <div class="copyright border-t border-green-700 text-center">
-                <p class="text-#a67c52-200 translate-text mt-8" data-key="copyright">&copy; 2025 All rights reserved for SIRiNA DOOR.</p>
+            <div class="copyright border-t border-gree-700 text-center">
+                <p class="text-#a67c52-200 translate-text mt-8" data-key="copyright">&copy; 2025 All rights reserved for HORAS DOOR.</p>
             </div>
         </div>
     </footer>
@@ -901,7 +838,7 @@ function closeMenu() {
                 'product-12-desc': 'Architectural pivot door with dramatic opening. Makes a bold statement in any space.',
                 'quick-links': 'Quick Links',
                 'contact-us': 'Contact Us',
-                'copyright': '© 2025 All rights reserved for SIRiNA DOOR.'
+                'copyright': '© 2025 All rights reserved for HORAS DOOR.'
             },
             'ar': {
                 'your-company': 'سيرينا دور',
@@ -971,7 +908,7 @@ function closeMenu() {
                 'product-12-desc': 'باب محوري معماري مع فتح مثير. يصنع بيانًا جريئًا في أي مساحة.',
                 'quick-links': 'روابط سريعة',
                 'contact-us': 'اتصل بنا',
-                'copyright': '© 2025 All rights reserved for SIRiNA DOOR.'
+                'copyright': '© 2025 All rights reserved for HORAS DOOR.'
             },
             'fr': {
                 'your-company': 'SIRiNA DOOR',
@@ -1029,7 +966,7 @@ function closeMenu() {
                 'related-4': 'Porte connexe 4',
                 'quick-links': 'Liens rapides',
                 'contact-us': 'Contactez-nous',
-                'copyright': '© 2025 All rights reserved for SIRiNA DOOR.'
+                'copyright': '© 2025 All rights reserved for HORAS DOOR.'
             },
     
             }
