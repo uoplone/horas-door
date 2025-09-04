@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Catalogue Website</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Tajawal:wght@400;700&family=Merriweather+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;text-decoration:none;    }
+    body {font-family:'Poppins','Tajawal','Merriweather Sans',sans-serif; background:#fff; color:#111; overflow-x:hidden;}
+
+    /* Header */
+    header {
+      position: fixed; top:0; left:0; width:100%; display:flex; justify-content:space-between; align-items:center;
+      padding:8px 35px; background:#A1DEA1; transition: background 0.4s, box-shadow 0.4s; z-index:1000;
+    }
+    header.scrolled {background:#FFFFFF6E;}
+    #logo {width:290px; margin-top: -7px; margin-left: -20px;}
+    nav {display:flex; align-items:center; gap:30px;}
+    nav a {position:relative; text-decoration:none; color:#3A693F; font-weight:500; transition:color 0.3s;}
+    nav a::after {content:""; position:absolute; left:0; bottom:-6px; width:0%; height:2px; background:#3A693F; transition:width 0.3s;}
+    nav a:hover::after, nav a.active::after {width:100%;}
+
+    /* Custom Language Dropdown */
+    .lang-dropdown {position:relative;}
+    .lang-btn {
+      background:#fff; color:#3A693F; padding:8px 15px; border-radius:20px;
+      border:none; cursor:pointer; font-weight:bold; font-size:0.9rem;
+    }
+    .lang-options {
+      position:absolute; top:120%; right:0; background:#3A693F; border-radius:10px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2); display:none; flex-direction:column;
+      min-width:120px; overflow:hidden;
+    }
+    .lang-options button {
+      padding:10px; border:none; background:#fff; color:#3A693F; font-weight:bold; cursor:pointer;
+      text-align:left; transition:background 0.3s;
+    }
+    .lang-options button:hover {background:#CADEB5;}
+    .lang-dropdown.open .lang-options {display:flex;}
+
+    /* Hamburger */
+    .hamburger {display:none; flex-direction:column; cursor:pointer;}
+    .hamburger span {height:3px; width:25px; background:#3A693F; margin:4px 0; border-radius:5px; transition:0.3s;}
+
+    /* Mobile Menu */
+    .mobile-nav {position:fixed; top:0; right:-280px; width:280px; height:100%; background:#A1DEA1; padding:60px 20px; display:flex; flex-direction:column; gap:20px; transition:right 0.3s ease; z-index:2000;}
+    .mobile-nav.open {right:0;}
+    .mobile-nav a {color:#3A693F; font-size:1.2rem; text-decoration:none; font-weight:bold;}
+    .mobile-nav .close-btn {font-size:2rem; color:#3A693F; background:none; border:none; cursor:pointer; position:absolute; top:20px; right:20px;}
+
+    /* Overlay */
+    .overlay {position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); display:none; z-index:1500;}
+    .overlay.show {display:block;}
+
+    /* Hero Section */
+    .hero {position:relative; height:70vh; margin-top:80px;}
+    .hero-image-placeholder {
+      width:100%; height:100%; background:#3A693F; display:flex; align-items:center; justify-content:center;
+    }
+    .hero-image-placeholder span {color:#555; font-size:1.5rem;}
+    .hero-content {
+      position:absolute; top:50%; left:10%; transform:translateY(-50%); max-width:600px; color:#3A693F;
+    }
+    .hero-content h2 {font-size:3rem; margin-bottom:20px;}
+    .hero-content p {font-size:1.2rem; margin-bottom:30px; line-height:1.6;}
+    .hero-content button {padding:12px 25px; border:none; border-radius:30px; font-size:1rem; font-weight:bold; cursor:pointer; background:#A1DEA1; color:#3A693F; transition:0.3s;}
+    .hero-content button:hover {opacity:0.8;}
+
+    /* Catalogue Vertical */
+    .catalogue-section {padding:80px 40px; text-align:center;}
+    .catalogue-section h2 {font-size:2.5rem; margin-bottom:40px; color:#3A693F;}
+    .catalogue-list {display:flex; flex-direction:column; gap:50px; align-items:center;}
+    .catalogue-list img {
+      width:17880px;         /* المقاس الأصلي */
+      height:870px;         /* المقاس الأصلي */
+      max-width:100%;       /* يناسب الشاشات الصغيرة */
+      object-fit:cover;     /* قص الصورة بدون تشويه */
+      border-radius:20px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+      opacity:0;
+      transform:translateY(50px);
+      transition:opacity 0.8s, transform 0.8s;
+    }
+    .catalogue-list img.show {opacity:1; transform:translateY(0);}
+
+    /* للشاشات الصغيرة: موبايل وتابلت */
+    @media (max-width:1024px) {
+      .catalogue-list img {
+        width:100%;
+        height:auto;
+        object-fit:contain; /* إظهار الصورة كاملة بدون قص */
+        border-radius:15px;
+      }
+    }
+
+    /* Footer */
+    footer {background:#A1DEA1; color:#3A693F; text-align:left; padding:40px 20px; margin-top:60px; font-size:1rem; box-shadow:0 -3px 10px rgba(0,0,0,0.1);}
+    footer h3 {margin-bottom:15px;}
+    footer p {margin:5px 0;}
+
+    /* Responsive */
+    @media(max-width:768px){
+      nav{display:none;}
+      .hamburger{display:flex;}
+      .hero-content{left:5%;}
+      .hero-content h2{font-size:2rem;}
+      .hero-content p{font-size:1rem;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <img src="logo.png" alt="" id="logo"/>
+  <nav>
+    <a href="#catalogue" data-key="menuCatalogue">Catalogue</a>
+   <a href="#about" data-key="menuAbout">About Us</a>
+    <a href="contact.html" target="_blank" data-key="menuContact">Social media</a>
+    <a href="https://wa.me/905072134190" target="_blank" data-key="menuCall">Call Us</a>
+
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-btn" id="langBtn">🌍 EN</button>
+      <div class="lang-options">
+        <button data-lang="en">🇬🇧 English</button>
+        <button data-lang="ar">🇸🇦 العربية</button>
+        <button data-lang="fr">🇫🇷 Français</button>
+      </div>
+    </div>
+  </nav>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-btn" id="closeBtn">&times;</button>
+  <a href="#catalogue" data-key="menuCatalogue">Catalogue</a>
+  <!--<a href="#about" data-key="menuAbout">About Us</a> soon-->
+  <a href="contact.html" target="_blank" data-key="menuContact">Social media</a>
+  <a href="https://wa.me/905072134190" target="_blank" data-key="menuCall">Call Us</a>
+  <div class="lang-dropdown" id="langDropdownMobile">
+    <button class="lang-btn" id="langBtnMobile">🌍 EN</button>
+    <div class="lang-options">
+      <button data-lang="en">🇬🇧 English</button>
+      <button data-lang="ar">🇸🇦 العربية</button>
+      <button data-lang="fr">🇫🇷 Français</button>
+    </div>
+  </div>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<section class="hero" id="hero">
+  <img src="hero.png" alt="Hero Image" class="hero-img">
+  <div class="hero-content">
+    <h2 data-key="heroTitle">Discover Elegance</h2>
+    <p data-key="heroText">
+      Explore our premium collection designed with style, comfort, and elegance for your lifestyle.
+    </p>
+    <button onclick="document.getElementById('catalogue').scrollIntoView({behavior:'smooth'})" data-key="heroBtn">
+      Look at Catalogue
+    </button>
+  </div>
+</section>
+<style>
+.hero {
+  position: relative;
+  width: 100%;
+  height: 500px; /* طول مناسب - تقدر تزود أو تنقص */
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* يخلي الصورة تغطي المساحة بدون تشويه */
+  z-index: -1; /* يخلي النص فوق الصورة */
+}
+
+.hero-content {
+  position: relative;
+  color: white; /* النص يبان فوق الصورة */
+  text-align: left;
+  top: 50%;
+  transform: translateY(-50%);
+}
+</style>
+<!-- About Us Section -->
+<section id="about" class="about-section">
+  <div class="about-container">
+    <div class="about-text">
+      <h2 data-key="aboutTitle">About Us</h2>
+      <p data-key="aboutText">
+        At HORAS DOOR, every door is more than just an entrance — it’s the beginning of a story. We blend modern design, premium quality, and eco-friendly materials to craft doors that bring elegance and durability. Our promise: products that make your home safer, more stylish, and built to last.
+      </p>
+    </div>
+    <div class="about-image">
+      <!-- ضع هنا صورتك الخاصة -->
+      <!--<img src="https://picsum.photos/500/400?random=99" alt="About Us">-->
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: 80px 40px;
+    background: #f8f8f8;
+  }
+  .about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+  .about-text {
+    flex: 1;
+    min-width: 300px;
+  }
+  .about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #4CAF50;
+  }
+  .about-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
+  }
+  .about-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+  }
+  .about-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+
+  @media(max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    .about-text h2 {
+      font-size: 2rem;
+    }
+    .about-text p {
+      font-size: 1rem;
+    }
+  }
+</style>
+<!-- Catalogue Section -->
+<section class="catalogue-section" id="catalogue">
+  <h2 data-key="catalogueTitle">Our Catalogue</h2>
+  <div class="catalogue-list">
+    <!-- ضع صور الكتالوج هنا أو أترك فراغ -->
+    <img src="/1.jpg">
+    <img src="/2.jpg">
+    <img src="3.jpg">
+    <img src="/4.jpg">
+    <img src="/5.jpg">
+    <img src="/6.jpg">
+    <img src="/7.jpg">
+    <img src="/8.jpg">
+    <img src="/9.jpg">
+    <img src="/10.jpg">
+    <img src="/11.jpg">
+    <img src="/12.jpg">
+    <img src="/13.jpg">
+    <img src="/14.jpg">
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="contact" style="color: #3A693F;">
+  <h3 data-key="footerTitle">Contact Us</h3>
+  <p><a href="https://maps.app.goo.gl/z2zZsppq9hGjmDsAA"style="color: #3A693F;"><strong data-key="footerAddress">Location:</strong> ANBAR SERBEST BÖLGE MAH. 17.CAD NO: 20 İÇ KAPI NO: 11</a></p>
+  <p><a href="tel: +905072134190"style="color: #3A693F;"><strong data-key="footerPhone">Phone:</strong> +90 507 213 4190</a></p>
+  <p><a href="mailto: horaskapi@gmail.com"style="color: #3A693F;"><strong data-key="footerEmail">Email:</strong> horaskapi@gmail.com</a></p>
+  <p style="text-align: center; margin-top: 30px;">© 2025 All rights reserved for HORAS DOOR.</p>
+</footer>
+
+<script>
+  // Header scroll
+  window.addEventListener("scroll",()=>{document.querySelector("header").classList.toggle("scrolled", window.scrollY>50);});
+
+  // Mobile Menu
+  const hamburger = document.getElementById("hamburger");
+  const mobileNav = document.getElementById("mobileNav");
+  const overlay = document.getElementById("overlay");
+  const closeBtn = document.getElementById("closeBtn");
+  function openMenu(){mobileNav.classList.add("open"); overlay.classList.add("show");}
+  function closeMenu(){mobileNav.classList.remove("open"); overlay.classList.remove("show");}
+  hamburger.addEventListener("click",openMenu);
+  closeBtn.addEventListener("click",closeMenu);
+  overlay.addEventListener("click",closeMenu);
+
+  // Scroll animation for catalogue
+  const catalogueImgs=document.querySelectorAll(".catalogue-list img");
+  function revealOnScroll(){const triggerBottom=window.innerHeight*0.9; catalogueImgs.forEach(img=>{const imgTop=img.getBoundingClientRect().top; if(imgTop<triggerBottom){img.classList.add("show");}});}
+  window.addEventListener("scroll",revealOnScroll); revealOnScroll();
+
+  // Language Switcher
+  const translations={
+    en:{menuCatalogue:"Catalogue", menuAbout:"About Us", menuContact:"Contact", aboutText:"At HORAS DOOR, every door is more than just an entrance — it’s the beginning of a story. We blend modern design, premium quality, and eco-friendly materials to craft doors that bring elegance and durability. Our promise: products that make your home safer, more stylish, and built to last." ,menuCall:"Call Us", heroTitle:"Discover Elegance", heroText:"Explore our premium collection designed with style, comfort, and elegance for your lifestyle.", heroBtn:"Look at Catalogue", catalogueTitle:"Our Catalogue", footerTitle:"Contact Us", footerAddress:"Address:", footerPhone:"Phone:", footerEmail:"Email:"},
+    ar:{menuCatalogue:"الكتالوج", menuAbout:"من نحن", menuContact:"اتصل بنا", aboutText:"في HORAS DOOR نؤمن أن كل باب ليس مجرد مدخل، بل هو بداية قصة. نمزج بين التصميم العصري والجودة العالية والخامات الصديقة للبيئة لنصنع أبوابًا تجمع الأناقة والمتانة. التزامنا: منتجات تجعل بيتك أكثر أمانًا وأناقة وتدوم لسنوات طويلة." , menuCall:"اتصل بنا", heroTitle:"اكتشف الأناقة", heroText:"استكشف مجموعتنا المميزة المصممة بالأناقة والراحة لأسلوب حياتك.", heroBtn:"شاهد الكتالوج", catalogueTitle:"كتالوجنا", footerTitle:"تواصل معنا", footerAddress:"العنوان:", footerPhone:"الهاتف:", footerEmail:"البريد:"},
+    fr:{menuCatalogue:"Catalogue", menuAbout:"À propos", menuContact:"Contact", aboutText:"Chez HORAS DOOR, chaque porte est bien plus qu’une simple entrée — c’est le début d’une histoire. Nous allions design moderne, qualité premium et matériaux respectueux de l’environnement pour créer des portes élégantes et durables. Notre promesse: des produits qui rendent votre maison plus sûre, plus élégante et faite pour durer" , menuCall:"Appelez-nous", heroTitle:"Découvrez l'élégance", heroText:"Découvrez notre collection premium conçue avec style, confort et élégance pour votre mode de vie.", heroBtn:"Voir le catalogue", catalogueTitle:"Notre Catalogue", footerTitle:"Contactez-nous", footerAddress:"Adresse:", footerPhone:"Téléphone:", footerEmail:"Email:"}
+  };
+
+  function setLanguage(lang){
+    document.querySelectorAll("[data-key]").forEach(el=>{
+      let key=el.getAttribute("data-key");
+      if(translations[lang][key]) el.innerText = translations[lang][key];
+    });
+    document.getElementById("langBtn").innerText = lang.toUpperCase();
+    document.getElementById("langBtnMobile").innerText = lang.toUpperCase();
+  }
+
+  // Header language
+  const langDropdown=document.getElementById("langDropdown");
+  const langBtn=document.getElementById("langBtn");
+  langBtn.addEventListener("click",()=>{langDropdown.classList.toggle("open");});
+  langDropdown.querySelectorAll(".lang-options button").forEach(btn=>{
+    btn.addEventListener("click",()=>{setLanguage(btn.dataset.lang); langDropdown.classList.remove("open");});
+  });
+
+  // Mobile language
+  const langDropdownMobile=document.getElementById("langDropdownMobile");
+  const langBtnMobile=document.getElementById("langBtnMobile");
+  langBtnMobile.addEventListener("click",()=>{langDropdownMobile.classList.toggle("open");});
+  langDropdownMobile.querySelectorAll(".lang-options button").forEach(btn=>{
+    btn.addEventListener("click",()=>{setLanguage(btn.dataset.lang); langDropdownMobile.classList.remove("open");});
+  });
+</script>
+
+</body>
+</html>
