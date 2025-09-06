@@ -340,10 +340,13 @@
   langDropdownMobile.querySelectorAll(".lang-options button").forEach(btn=>{
     btn.addEventListener("click",()=>{setLanguage(btn.dataset.lang); langDropdownMobile.classList.remove("open");});
   });
+  
+  document.addEventListener('contextmenu', event => event.preventDefault());
 </script>
 
 </body>
 </html>
+
 
 
 
