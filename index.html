@@ -342,10 +342,59 @@
   });
   
   document.addEventListener('contextmenu', event => event.preventDefault());
+
+  // 🔐 منع تنفيذ أي سكربت داخل مدخلات المستخدم
+function sanitizeInput(input) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;',
+    '/': '&#x2F;',
+  };
+  const reg = /[&<>"'/]/ig;
+  return input.replace(reg, (match)=>(map[match]));
+}
+
+// 🧪 التحقق من صحة المدخلات
+function validateInput(input) {
+  const pattern = /^[a-zA-Z0-9\s.,!?@_-]+$/;
+  return pattern.test(input);
+}
+
+// 🛡️ منع إرسال طلبات CSRF بدون توكن
+function sendSecureRequest(url, data, csrfToken) {
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'CSRF-Token': csrfToken
+    },
+    body: JSON.stringify(data)
+  }).then(response => {
+    if (!response.ok) throw new Error('Request failed');
+    return response.json();
+  }).then(data => {
+    console.log('Success:', data);
+  }).catch(error => {
+    console.error('Error:', error);
+  });
+}
+
+// 🧼 مثال على استخدام الحماية
+const userInput = document.getElementById('comment').value;
+if (validateInput(userInput)) {
+  const safeInput = sanitizeInput(userInput);
+  sendSecureRequest('/submit', { comment: safeInput }, 'your-csrf-token-here');
+} else {
+  alert('مدخلات غير صالحة!');
+}
 </script>
 
 </body>
 </html>
+
 
 
 
